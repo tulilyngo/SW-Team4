@@ -58,7 +58,7 @@ public class DatabaseFile
     try
     {
       // Create a FileInputStream and a BufferedReader.
-      fis = new FileInputStream("userGame.sql");
+      fis = new FileInputStream("/SW-Team4/database.sql");
       BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
       
       // Read every line from the file one at a time.
@@ -102,7 +102,7 @@ public class DatabaseFile
     try
     {
       // Create a FileOutputStream and BufferedWriter.
-      fos = new FileOutputStream("userGame.txt");
+      fos = new FileOutputStream("/SW-Team4/database.sql");
       BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
       
       // Write the file contents.
