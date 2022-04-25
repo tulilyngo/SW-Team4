@@ -136,9 +136,9 @@ public class ServerGUI extends JFrame
 	    
 	    //puts player username in the text field
 	    // Retrieving the list of column names
-        int count = database.getColumnPlayers();
+        int count = database.get(username);
         for (int b = 0; i <= count; i++) {
-        	log.setText(database.data.getUsername[b]); 
+        	log.setText(database.get(username[b])); 
         }
 	    
 	    JScrollPane serverLogPane = new JScrollPane(log);
