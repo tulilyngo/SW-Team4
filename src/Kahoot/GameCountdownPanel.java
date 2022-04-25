@@ -17,35 +17,42 @@ public class GameCountdownPanel extends JFrame
 	{
 	    this.setTitle(title);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	   
-	  //countdown
-		  countdown = new JButton("start");
-		  number = new JLabel("5");
-		  
-		  //add to panel
-		  JPanel center = new JPanel();
-		  center.add(number);
-		  center.add(countdown);
 		  
 		  //creates the event
 		  event e = new event();
-          countdown.addActionListener(e);
-         		
-		  
-	// South panel for "Game about to begin"
-        beginDisplay = new JLabel(title + "Game is about to begin!");
 	  	JPanel south = new JPanel(new FlowLayout());
-	    south.add(beginDisplay);
 	    
 	    
 	// contains all panels
 	    JPanel combine_panel = new JPanel();
 	    combine_panel.setLayout(new BoxLayout(combine_panel, BoxLayout.Y_AXIS));
+	    combine_panel.add(south);
+	    
+	  //countdown
+		  countdown = new JButton("start");
+		  countdown.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		  south.add(countdown);
+		  countdown.addActionListener(e);
+
+	    getContentPane().add(combine_panel, BorderLayout.CENTER);
+	    
+	    //add to panel
+	    JPanel center = new JPanel();
+	    center.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	    
 	    combine_panel.add(center);
-	    combine_panel.add(south);
-
-	    this.add(combine_panel, BorderLayout.CENTER);
+	    number = new JLabel("5");
+	    number.setFont(new Font("Tahoma", Font.PLAIN, 60));
+	    center.add(number);
+	    
+	    Panel panel = new Panel();
+	    combine_panel.add(panel);
+	    
+		  
+	// South panel for "Game about to begin"
+        beginDisplay = new JLabel(title + "Game is about to begin!");
+        beginDisplay.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panel.add(beginDisplay);
 
 	    setSize(800, 450);
 	    setVisible(true);
