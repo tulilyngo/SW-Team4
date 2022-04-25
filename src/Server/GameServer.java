@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import Client.CreateAccountView.CreateAccountData;
 import Client.LoginView.LoginData;
@@ -18,11 +19,15 @@ public class GameServer extends AbstractServer
   private JTextArea log;
   private JLabel status;
   private Database database;
+  private GameLogicControlServer glcs;
+  private Integer numPlayers = 0;
 
   // Constructor for initializing the server with default settings.
   public GameServer()
   {
     super(12345);
+    glcs = new GameLogicControlServer();
+    glcs.server = this;
   }
   
   void setDatabase(Database database)
@@ -60,10 +65,10 @@ public class GameServer extends AbstractServer
 
       LoginData loginData = (LoginData)arg0;
 
-      Player user = new Player(loginData.getUsername(), loginData.getPassword());
+      Player player = new Player(loginData.getUsername(), loginData.getPassword());
 
       try {
-        database.findUser(user);
+        database.findUser(player);
       } catch (SQLException e1) {
         // TODO Auto-generated catch block
         e1.printStackTrace();
@@ -87,16 +92,11 @@ public class GameServer extends AbstractServer
       else 
       {
         log.append("Log in for Client " + arg1.getId() + " successful\n");
-        ArrayList<String> contacts = null;
-        try {
-          contacts = database.getContacts(user);
-        } catch (SQLException e1) {
-          // TODO Auto-generated catch block
-          e1.printStackTrace();
-        }
+        glcs.handleClientConnection(arg1);
+        numPlayers++;
         try
         {
-          arg1.sendToClient(contacts);
+          arg1.sendToClient(numPlayers);
         } catch (IOException e)
         {
           // TODO Auto-generated catch block

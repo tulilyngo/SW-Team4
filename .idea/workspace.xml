@@ -2,32 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe024252-397b-490f-a8a5-20efb31bff3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Client/ClientGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/InitialView/InitialPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server/ServerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/ClientGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/CorrectAnswerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CorrectAnswerControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/CorrectAnswerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CorrectAnswerPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/CreateAccountControl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/CreateAccountPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/InitialControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/InitialPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/LoginControl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/LoginView/LoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionBeginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kahoot/serverGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ContactPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/GameServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/GameServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +22,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -53,6 +44,45 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Server" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ClientGUI">
+    <configuration name="ClientGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client.ClientGUI" />
+      <module name="SW-Team4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.ServerGUI" />
+      <module name="SW-Team4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ClientGUI" />
+        <item itemvalue="Application.ServerGUI" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -75,5 +105,52 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Client/LoginView/LoginControl.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/GameLogicControlServer.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/GameServer.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/GameServer.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

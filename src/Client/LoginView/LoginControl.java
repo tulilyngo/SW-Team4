@@ -1,90 +1,85 @@
 package Client.LoginView;
 
 import Client.GameClient;
-import Client.QuestionView.QuestionPanel;
 import Server.Player;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 
 public class LoginControl implements ActionListener
 {
-	private JPanel container;
-	private GameClient client;
-	private Player user;					//need this to retrieve user's contacts if login successful
+  private JPanel container;
+  private GameClient client;
+  private Player player;
 
-	public LoginControl(JPanel container, GameClient client)
-	{
-		this.container = container;
-		this.client = client;
-		user = new Player("", "");
-	}
+  public LoginControl(JPanel container, GameClient client)
+  {
+    this.container = container;
+    this.client = client;
+    player = new Player("", "");
+  }
 
-	//Handle button clicks
-	public void actionPerformed(ActionEvent ae)
-	{
-		//Get the name of the button clicked
-		String command = ae.getActionCommand();
+  //Handle button clicks
+  public void actionPerformed(ActionEvent ae)
+  {
+    //Get the name of the button clicked
+    String command = ae.getActionCommand();
 
-		//The Cancel button takes the user back to the initial panel
-		if (command == "Cancel")
-		{
-			//Reset the log in panel
-			LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
-			loginPanel.clearContents();
-			
-			CardLayout cardLayout = (CardLayout)container.getLayout();
-			cardLayout.show(container, "1");
-		}
+    //The Cancel button takes the user back to the initial panel
+    if (command == "Cancel")
+    {
+      //Reset the log in panel
+      LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
+      loginPanel.clearContents();
 
-		//The Submit button submits the create information to the server
-		else if (command == "Submit")
-		{
-			//Get the username and password the user entered
-			LoginPanel loginPanel = (LoginPanel)container.getComponent(1);	//2nd panel of the CardLayout container
-			LoginData data = new LoginData(loginPanel.getUsername(), loginPanel.getPassword());
+      CardLayout cardLayout = (CardLayout)container.getLayout();
+      cardLayout.show(container, "1");
+    }
 
-			//Check the validity of the info locally
-			if (data.getUsername().equals("") || data.getPassword().equals(""))
-			{
-				displayError("You must enter a username and password.");
-				return;
-			}
+    //The Submit button submits the create information to the server
+    else if (command == "Submit")
+    {
+      //Get the username and password the user entered
+      LoginPanel loginPanel = (LoginPanel)container.getComponent(1);	//2nd panel of the CardLayout container
+      LoginData data = new LoginData(loginPanel.getUsername(), loginPanel.getPassword());
 
-			//Submit the login info to the server
-			try
-			{
-				client.sendToServer(data);
-			} catch (IOException e)
-			{
-				e.printStackTrace();
-			}
-		}
-	}
+      //Check the validity of the info locally
+      if (data.getUsername().equals("") || data.getPassword().equals(""))
+      {
+        displayError("You must enter a username and password.");
+        return;
+      }
 
-	//After the login is successful, set the User object and display the contacts screen
-	//Invoked by the ChatClient
-	public void loginSuccess()
-	{
-//		ArrayList<String> contacts = client.getContacts();
-		
-		//Reset the log in panel 
-		LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
-		loginPanel.clearContents();
+      //Submit the login info to the server
+      try
+      {
+        client.sendToServer(data);
+      } catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+  }
 
-		CardLayout cardLayout = (CardLayout)container.getLayout();
-		cardLayout.show(container, "4");
+  //After the login is successful, set the Player object and display the game screen
+  //Invoked by the GameClient
+  public void loginSuccess(Integer numPlayers)
+  {
+    //Reset the log in panel
+    LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
+    loginPanel.clearContents();
 
-		//Display contacts of the user
-		QuestionPanel questionPanel = (QuestionPanel)container.getComponent(4);
-//		questionPanel.displayQuestions(user, contacts);
-	}
+    CardLayout cardLayout = (CardLayout)container.getLayout();
+    if (numPlayers != 2) {
+      cardLayout.show(container, "wait");
+    }
+  }
 
-	public void displayError(String error)
-	{
-		LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
-		loginPanel.setError(error);
-	}
+  public void displayError(String error)
+  {
+    LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
+    loginPanel.setError(error);
+  }
 }

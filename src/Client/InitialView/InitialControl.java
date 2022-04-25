@@ -28,7 +28,7 @@ public class InitialControl implements ActionListener
       LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
       loginPanel.setError("");
       CardLayout cardLayout = (CardLayout)container.getLayout();
-      cardLayout.show(container, "2");
+      cardLayout.show(container, "login");
     }
     
     // The Create button takes the user to the create account panel.
@@ -37,7 +37,7 @@ public class InitialControl implements ActionListener
       CreateAccountPanel createAccountPanel = (CreateAccountPanel)container.getComponent(2);
       createAccountPanel.setError("");
       CardLayout cardLayout = (CardLayout)container.getLayout();
-      cardLayout.show(container, "3");
+      cardLayout.show(container, "create");
     }
   }
 }

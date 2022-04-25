@@ -1,18 +1,26 @@
 package Client;
 
+import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import Client.CreateAccountView.CreateAccountControl;
 import Client.CreateAccountView.CreateAccountData;
 import Client.LoginView.LoginControl;
+import Client.QuestionView.QuestionControl;
+import Client.QuestionView.QuestionPanel;
+import Server.Player;
 import ocsf.client.AbstractClient;
+
+import javax.swing.*;
 
 public class GameClient extends AbstractClient
 {
-  private ArrayList<String> contacts;
   private LoginControl lc;
   private CreateAccountControl cc;
-  //Need these 2 controls to "deliver" the response based on server's msg
+  private QuestionControl questionControl;
+
+  public JPanel container;
   
   public GameClient()
   {
@@ -25,14 +33,10 @@ public class GameClient extends AbstractClient
     //arg0 is only null when a null contacts arraylist is sent back 
     if (arg0 == null)
     {
-      contacts = null;
-      lc.loginSuccess();
     }
-    //Server sending back an array list of contacts = successful log in
-    else if (arg0 instanceof ArrayList)
+    else if (arg0 instanceof Integer)
     {
-      contacts = (ArrayList<String>) arg0;
-      lc.loginSuccess();
+      lc.loginSuccess((Integer) arg0);
     }
     //Server sending back a CreateAccountData instance = successful creation
     else if (arg0 instanceof CreateAccountData)
@@ -42,16 +46,21 @@ public class GameClient extends AbstractClient
     //Server sending back a string = error
     else 
     {
-      String error = (String)arg0;
+      String msg = (String)arg0;
       
       //Determine which panel the error msg belongs to
-      if (error.equals("Cannot find log in info. Check username/password or create an account."))
+      if (msg.equals("Cannot find log in info. Check username/password or create an account."))
       {
-        lc.displayError(error);
+        lc.displayError(msg);
       }
-      else if (error.equals("Username already existed."))
+      else if (msg.equals("Username already existed."))
       {
-        cc.displayError(error);
+        cc.displayError(msg);
+      }
+      else if (msg.equals("start")) {
+        //initialize the game
+        CardLayout cardLayout = (CardLayout)container.getLayout();
+        cardLayout.show(container, "question");
       }
     }
   }
@@ -61,11 +70,6 @@ public class GameClient extends AbstractClient
     System.out.println("Connection Exception Occurred");
     System.out.println(exception.getMessage());
     exception.printStackTrace();
-  }
-  
-  public ArrayList<String> getContacts()
-  {
-    return contacts;
   }
   
   public void setLoginControl(LoginControl lc)

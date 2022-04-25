@@ -35,6 +35,7 @@ public class ClientGUI extends JFrame {
     // Create the card layout container.
     CardLayout cardLayout = new CardLayout();
     JPanel container = new JPanel(cardLayout);
+    client.container = container;
 
     // Create the Controllers next
     InitialControl ic = new InitialControl(container);
@@ -47,11 +48,7 @@ public class ClientGUI extends JFrame {
     client.setLoginControl(lc);
     client.setCreateControl(cc);
 
-    /*
-     * Create the views and associate them with their corresponding controllers View
-     * 1: Initial panel View 2: Login panel View 3: Create panel View 4: Contacts
-     * panel
-     */
+    // Create the views and associate them with their corresponding controllers View
     JPanel initialView = new InitialPanel(ic);
     JPanel loginView = new LoginPanel(lc);
     JPanel createAccountView = new CreateAccountPanel(cc);
@@ -59,14 +56,14 @@ public class ClientGUI extends JFrame {
     JPanel questionView = new QuestionPanel(qc);
 
     // Add the views to the card layout container
-    container.add(initialView, "1");
-    container.add(loginView, "2");
-    container.add(createAccountView, "3");
-//    container.add(watingScreenView, "4");
-    container.add(questionView, "4");
+    container.add(initialView, "initial");
+    container.add(loginView, "login");
+    container.add(createAccountView, "create");
+    container.add(watingScreenView, "wait");
+    container.add(questionView, "question");
 
     // Show the initial view in the card layout.
-    cardLayout.show(container, "1");
+    cardLayout.show(container, "initial");
 
     // Add the card layout container to the JFrame.
     this.add(container, BorderLayout.CENTER);
