@@ -1,9 +1,8 @@
-package Kahoot;
+package Client.QuestionView;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.EventHandler;
 
 import javax.swing.*;
 

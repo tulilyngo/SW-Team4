@@ -1,13 +1,10 @@
-package Kahoot;
+package Client.QuestionView;
+
+import Server.Database;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.EventHandler;
-import java.io.IOException;
 
 import javax.swing.*;
 
@@ -21,7 +18,7 @@ public class QuestionPanel extends JPanel {
     JPanel labelPanel = new JPanel(new GridLayout(1, 1));
 
     JLabel questionLabel = new JLabel("Question", JLabel.CENTER);
-//    ArrayList<String> questions = database.getQuestion();
+//    ArrayList<String> questions = database.getQuestions();
 //    questionLabel.setText(questions.get(0));
     questionLabel.setFont(new Font("Serif", Font.BOLD, 16));
     questionLabel.setBackground(Color.decode("#fefffe"));
@@ -40,7 +37,7 @@ public class QuestionPanel extends JPanel {
 //    timerLabel.setFont(new Font("Serif", Font.PLAIN, 28));
     Timer timer = new Timer();
     timer.scheduleAtFixedRate(new TimerTask() {
-      int i = 5;
+      int i = 20;
 
       public void run() {
 

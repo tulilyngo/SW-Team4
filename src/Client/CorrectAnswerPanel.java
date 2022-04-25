@@ -1,12 +1,8 @@
-package Kahoot;
+package Client;
 
 import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.EventHandler;
-import java.io.IOException;
 
 import javax.swing.*;
 

@@ -1,4 +1,4 @@
-package Kahoot;
+package Client;
 
 import java.awt.CardLayout;
 

@@ -1,4 +1,6 @@
-package Kahoot;
+package Client.QuestionView;
+
+import Client.CreateAccountView.CreateAccountPanel;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;

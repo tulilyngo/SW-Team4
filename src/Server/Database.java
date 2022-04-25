@@ -1,15 +1,8 @@
-package Kahoot;
+package Server;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Properties;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 
 public class Database {
   private boolean foundUser; // check if a user is found in the database
@@ -19,10 +12,12 @@ public class Database {
   private Statement stmt;
   private ResultSet rs;
 
+  // Add any other data fields you like – at least a Connection object is
+  // mandatory
   public Database() throws IOException {
     // Read properties file
     Properties prop = new Properties();
-    FileInputStream fis = new FileInputStream("Kahoot/db.properties");
+    FileInputStream fis = new FileInputStream("src/Kahoot/db.properties");
     prop.load(fis);
     String url = prop.getProperty("url");
     String user = prop.getProperty("user");
@@ -35,7 +30,7 @@ public class Database {
     }
   }
 
-  private ArrayList<String> query(String query) {
+  public ArrayList<String> query(String query) throws SQLException {
     ArrayList<String> result = new ArrayList<String>();
 
     try {
@@ -72,13 +67,48 @@ public class Database {
 
     return result;
   }
-  
-  public ArrayList<String> getQuestion()
-  {
-    System.out.println("Call success");
-    ArrayList<String> result = query(
-        "SELECT question FROM questions;");
 
-   return result;
+  public void executeDML(String dml) throws SQLException {
+    // Add your code here
+    stmt = con.createStatement();
+    stmt.execute(dml);
+  }
+
+  public void findUser(Player user) throws SQLException {
+    ArrayList<String> result = query("SELECT username, password FROM client " + "WHERE username = \""
+        + user.getUsername() + "\" " + "AND password = aes_encrypt(\"" + user.getPassword() + "\",\"" + key + "\");");
+
+    if (result == null)
+      foundUser = false;
+    else
+      foundUser = true;
+  }
+
+  public void addUser(Player user) {
+    try {
+      executeDML("INSERT INTO client " + "VALUES (\"" + user.getUsername() + "\"," + "aes_encrypt(\""
+          + user.getPassword() + "\",\"" + key + "\"));");
+
+      foundUser = false;
+    } catch (SQLException e) {
+      foundUser = true;
+    }
+  }
+
+  public ArrayList<String> getContacts(Player user) throws SQLException {
+    ArrayList<String> result = query(
+        "SELECT contact_username FROM contacts " + "WHERE username = \"" + user.getUsername() + "\";");
+
+    return result;
+  }
+
+  public ArrayList<String> getQuestions() throws SQLException {
+    ArrayList<String> result = query("SELECT question FROM questions;");
+
+    return result;
+  }
+
+  public boolean getFoundUser() {
+    return foundUser;
   }
 }

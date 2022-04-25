@@ -1,4 +1,7 @@
-package Kahoot;
+package Client.InitialView;
+
+import Client.CreateAccountView.CreateAccountPanel;
+import Client.LoginView.LoginPanel;
 
 import java.awt.*;
 import javax.swing.*;
@@ -6,9 +9,8 @@ import java.awt.event.*;
 
 public class InitialControl implements ActionListener
 {
-  // Private data field for storing the container.
   private JPanel container;
-  // Constructor for the initial controller.
+  
   public InitialControl(JPanel container)
   {
     this.container = container;
@@ -21,13 +23,12 @@ public class InitialControl implements ActionListener
     String command = ae.getActionCommand();
     
     // The Login button takes the user to the login panel.
-    if (command.equals("Login"))
+    if (command.equals("Log In"))
     {
       LoginPanel loginPanel = (LoginPanel)container.getComponent(1);
       loginPanel.setError("");
       CardLayout cardLayout = (CardLayout)container.getLayout();
       cardLayout.show(container, "2");
-     
     }
     
     // The Create button takes the user to the create account panel.

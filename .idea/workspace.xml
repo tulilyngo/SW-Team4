@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fe024252-397b-490f-a8a5-20efb31bff3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Client/ClientGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client/InitialView/InitialPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/ServerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/ClientGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/CorrectAnswerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CorrectAnswerControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/CorrectAnswerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CorrectAnswerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/CreateAccountControl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/CreateAccountPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/InitialControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/InitialPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/LoginControl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/LoginView/LoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionBeginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/QuestionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kahoot/serverGUI.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="28J156lnntS5VmidNf00iySk0YZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe024252-397b-490f-a8a5-20efb31bff3b" name="Changes" comment="" />
+      <created>1650919692936</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650919692936</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,4 +1,4 @@
-package Kahoot;
+package Server;
 
 public class Question {
   private int id;
