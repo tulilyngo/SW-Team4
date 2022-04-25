@@ -36,6 +36,11 @@ public class QuestionBeginPanel extends JFrame {
     main.add(all_panel);
 
     this.add(main, BorderLayout.CENTER);
+    
+    // TODO: This block will be in main client
+//    QuestionControl qc = new QuestionControl();
+    
+//    JPanel view = new QuestionPanel(qc);
 
     setSize(800, 450);
     setVisible(true);

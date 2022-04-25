@@ -1,7 +1,6 @@
 package Kahoot;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.event.ActionEvent;
@@ -11,18 +10,15 @@ import java.io.IOException;
 
 import javax.swing.*;
 
-public class QuestionPanel extends JPanel {
-  private QuestionControl qc;
-  private Database database;
+public class CorrectAnswerPanel extends JPanel {
+  private CorrectAnswerControl cac;
 
-  public QuestionPanel(QuestionControl qc) {
+  public CorrectAnswerPanel(CorrectAnswerControl cac) {
 
     // ---------- Question Label Panel ----------
     JPanel labelPanel = new JPanel(new GridLayout(1, 1));
 
     JLabel questionLabel = new JLabel("Question", JLabel.CENTER);
-//    ArrayList<String> questions = database.getQuestion();
-//    questionLabel.setText(questions.get(0));
     questionLabel.setFont(new Font("Serif", Font.BOLD, 16));
     questionLabel.setBackground(Color.decode("#fefffe"));
     questionLabel.setOpaque(true);
@@ -30,7 +26,7 @@ public class QuestionPanel extends JPanel {
 
     labelPanel.add(questionLabel);
 
-    // ---------- Center Panel for Timer and No of answers submitted ----------
+    // ---------- Count down timer for displaying correct answer ----------
     JPanel centerPanel = new JPanel(new GridLayout(1, 2, 0, 0));
 
     JLabel timerLabel = new JLabel("", JLabel.CENTER);
@@ -50,15 +46,15 @@ public class QuestionPanel extends JPanel {
         if (i < 0) {
           timer.cancel();
           timerLabel.setText("Time Over");
-          qc.direct();
+          cac.direct();
         }
       }
     }, 0, 1000);
 
-    JLabel noAnswers = new JLabel("0 Answers", JLabel.CENTER);
+//    JLabel noAnswers = new JLabel("0 Answers", JLabel.CENTER);
 
     centerPanel.add(timerLabel);
-    centerPanel.add(noAnswers);
+//    centerPanel.add(noAnswers);
 
     // ---------- Answers Label Panel ----------
     JPanel answerPanel = new JPanel(new GridLayout(2, 2, 5, 5));
@@ -73,12 +69,12 @@ public class QuestionPanel extends JPanel {
     answer3.setPreferredSize(new Dimension(200, 50));
     answer4.setPreferredSize(new Dimension(200, 50));
 
-    answer1.setBackground(Color.decode("#e21a3d"));
+    answer1.setBackground(Color.decode("#eebec7"));
     answer1.setOpaque(true);
     answer1.setBorderPainted(false);
     answer1.setForeground(Color.decode("#fefffe"));
 
-    answer2.setBackground(Color.decode("#1368cf"));
+    answer2.setBackground(Color.decode("#bdd1e8"));
     answer2.setOpaque(true);
     answer2.setBorderPainted(false);
     answer2.setForeground(Color.decode("#fefffe"));
@@ -88,15 +84,10 @@ public class QuestionPanel extends JPanel {
     answer3.setBorderPainted(false);
     answer3.setForeground(Color.decode("#fefffe"));
 
-    answer4.setBackground(Color.decode("#26890b"));
+    answer4.setBackground(Color.decode("#bdd1e8"));
     answer4.setOpaque(true);
     answer4.setBorderPainted(false);
     answer4.setForeground(Color.decode("#fefffe"));
-
-    answer1.addActionListener(qc);
-    answer2.addActionListener(qc);
-    answer3.addActionListener(qc);
-    answer4.addActionListener(qc);
 
     answerPanel.add(answer1);
     answerPanel.add(answer2);
