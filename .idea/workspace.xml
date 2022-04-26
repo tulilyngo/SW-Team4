@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="fe024252-397b-490f-a8a5-20efb31bff3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientComm/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/LoginControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientInterface/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/ClientGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientInterface/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/LoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/LoginData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerComm/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerComm/GameServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerInterface/ServerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerInterface/ServerGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -109,44 +117,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ClientComm/LoginControl.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ServerComm/GameLogicControlServer.java</url>
           <line>27</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ServerComm/GameServer.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ServerComm/GameServer.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

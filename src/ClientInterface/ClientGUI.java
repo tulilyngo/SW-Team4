@@ -21,11 +21,9 @@ public class ClientGUI extends JFrame {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     client = new GameClient();
-    try
-    {
+    try {
       client.openConnection();
-    } catch (IOException e)
-    {
+    } catch (IOException e) {
       e.printStackTrace();
     }
 
