@@ -1,16 +1,42 @@
 package Database;
 
-import Database.Database;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionData {
-  private Database database;
+    private int id;
+    private String question;
+    List<String> answers;
+    private int ans;
 
-  public ArrayList<String> getQuestion() throws SQLException {
-    ArrayList<String> question = database.getQuestions();
-    
-    return question;
-  }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public List<String> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<String> answers) {
+        this.answers = answers;
+    }
+
+    public int getAns() {
+        return ans;
+    }
+
+    public void setAns(int ans) {
+        this.ans = ans;
+    }
 }
