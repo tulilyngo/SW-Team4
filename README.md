@@ -1,6 +1,6 @@
 # SW-Team4
 # Trivia Game : A two-player quiz game
-[read_me.txt](https://github.com/tulilyngo/SW-Team4/files/8560289/read_me.txt)
+[README.txt](https://github.com/tulilyngo/SW-Team4/files/8560307/README.txt)
 
 
 Installation Guide
