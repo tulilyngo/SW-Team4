@@ -3,31 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fe024252-397b-490f-a8a5-20efb31bff3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/ClientGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/CorrectAnswerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/CorrectAnswerControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/CorrectAnswerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/CorrectAnswerPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/CreateAccountControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/CreateAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/CreateAccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/InitialControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/InitialView/InitialPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/InitialPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/LoginControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/LoginData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/LoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/QuestionBeginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/QuestionControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/QuestionData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/QuestionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/WaitingScreenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/WaitingScreenPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/GameLogicControlServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameLogicControlServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/GameServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerInterface/ServerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,5 +150,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
