@@ -16,7 +16,8 @@ public class GameLogicControlServer {
     Database database;
 
     // Store the player size so we can determine when there are two players
-    private int players_size = 0;
+    private int numPlayers = 0;
+    private int numQuestions = 0;
 
     GameData dataToSendToClient;
     public GameServer server;
@@ -26,17 +27,16 @@ public class GameLogicControlServer {
 
     public GameLogicControlServer(Database database) {
         this.database = database;
-
     }
 
     public void handleClientConnection(ConnectionToClient client)
     {
-        if (players_size == 0) {
-            players_size++;
+        if (numPlayers == 0) {
+            numPlayers++;
             player1 = client;
         }
         else {
-            players_size++;
+            numPlayers = 0;
             player2 = client;
         }
 
@@ -45,6 +45,7 @@ public class GameLogicControlServer {
             server.stopListening();
 
             List<QuestionData> questions = database.getQuestions();
+            numQuestions = questions.size();
 
             GameData gameData = new GameData(questions);
             dataToSendToClient = gameData;
@@ -77,11 +78,21 @@ public class GameLogicControlServer {
                 } else {
                     dataToSendToClient.setPlayer2Score(score);
                 }
-                dataToSendToClient.setCurrentQuestion(questionNum + 1);
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+
+                if (questionNum + 1 < numQuestions) {
+                    dataToSendToClient.setCurrentQuestion(questionNum + 1);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    dataToSendToClient.setGameOver(true);
+                    try {
+                        server.listen();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 server.sendToAllClients(dataToSendToClient);
             } else {
@@ -95,9 +106,11 @@ public class GameLogicControlServer {
         }
     }
 
-    public void resetState() {
+    private void resetState() {
         player1 = null;
         player2 = null;
-        players_size = 0;
+        numPlayers = 0;
+        numQuestions = 0;
+        answersReceived = 0;
     }
 }

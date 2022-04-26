@@ -185,6 +185,10 @@ public class ServerGUI extends JFrame {
         quit.addActionListener(event -> System.exit(0));
     }
 
+    public JButton getListen() {
+        return listen;
+    }
+
     public static void main(String[] args)
     {
         new ServerGUI();

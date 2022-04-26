@@ -31,8 +31,32 @@ public class CreateAccountPanel extends JPanel {
         return new String(password2nd.getPassword());
     }
 
+    public void setErrorLabel(JLabel errorLabel) {
+        this.errorLabel = errorLabel;
+    }
+
+    public void setPasswordField(String pw) {
+        this.passwordField.setText(pw);
+    }
+
+    public void setUsernameField(String username) {
+        this.usernameField.setText(username);
+    }
+
+    public void setPassword2nd(String pw) {
+        this.password2nd.setText(pw);
+    }
+
+    public JButton getSubmit() {
+        return submit;
+    }
+
     public void setError(String error) {
         errorLabel.setText(error);
+    }
+
+    public String getError() {
+        return errorLabel.getText();
     }
 
     public CreateAccountPanel(CreateAccountControl cc) {

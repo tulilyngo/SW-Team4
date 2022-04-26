@@ -11,6 +11,7 @@ public class GameData implements Serializable {
     private int player2Score = 0;
     private int timeLeft = 15;
     private boolean isPlayer1;
+    private boolean gameOver = false;
 
     public GameData(List<QuestionData> questions) {
         this.questions = questions;
@@ -62,6 +63,14 @@ public class GameData implements Serializable {
 
     public void setPlayer1(boolean player1) {
         isPlayer1 = player1;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
     }
 
     public int getScore() {

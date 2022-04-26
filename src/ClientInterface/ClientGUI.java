@@ -1,6 +1,7 @@
 package ClientInterface;
 
 import ClientComm.CreateAccountControl;
+import ClientComm.GameOverControl;
 import ClientComm.InitialControl;
 import ClientComm.LoginControl;
 import ServerComm.QuestionControl;
@@ -36,19 +37,19 @@ public class ClientGUI extends JFrame {
     LoginControl lc = new LoginControl(container, client);
     CreateAccountControl cc = new CreateAccountControl(container, client);
     QuestionControl qc = new QuestionControl(container, client);
-//    CorrectAnswerControl cac = new CorrectAnswerControl(container);
+    GameOverControl gameOverControl = new GameOverControl(container);
 
     // Set the controllers in ChatClient
     client.setLoginControl(lc);
     client.setCreateControl(cc);
     client.setQuestionControl(qc);
+    client.setGameOverControl(gameOverControl);
 
     // Create the views and associate them with their corresponding controllers View
     JPanel initialView = new InitialPanel(ic);
     JPanel loginView = new LoginPanel(lc);
     JPanel createAccountView = new CreateAccountPanel(cc);
     JPanel watingScreenView = new WaitingScreenPanel();
-//    JPanel questionView = new QuestionPanel(qc);
 
     // Add the views to the card layout container
     container.add(initialView, "initial");

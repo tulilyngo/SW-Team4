@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import Database.CreateAccountData;
 import Database.Database;
 import Database.LoginData;
-import Database.GameData;
+import Database.Player;
 import ocsf.server.AbstractServer;
 import ocsf.server.ConnectionToClient;
 

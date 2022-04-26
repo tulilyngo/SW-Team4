@@ -3,7 +3,7 @@ package ClientComm;
 import ServerComm.GameClient;
 import Database.LoginData;
 import ClientInterface.LoginPanel;
-import ServerComm.Player;
+import Database.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +33,7 @@ public class LoginControl implements ActionListener {
             loginPanel.clearContents();
 
             CardLayout cardLayout = (CardLayout)container.getLayout();
-            cardLayout.show(container, "1");
+            cardLayout.show(container, "initial");
         }
 
         // The Submit button submits the create information to the server

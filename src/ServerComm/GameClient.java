@@ -3,6 +3,8 @@ package ServerComm;
 import java.awt.*;
 
 import ClientComm.CreateAccountControl;
+import ClientComm.GameOverControl;
+import ClientInterface.GameOverPanel;
 import ClientInterface.QuestionPanel;
 import Database.CreateAccountData;
 import ClientComm.LoginControl;
@@ -15,6 +17,7 @@ public class GameClient extends AbstractClient {
     private LoginControl loginControl;
     private CreateAccountControl createAccountControl;
     private QuestionControl questionControl;
+    private GameOverControl gameOverControl;
 
     private JPanel container;
     private CardLayout cardLayout;
@@ -53,7 +56,13 @@ public class GameClient extends AbstractClient {
                 cardLayout.show(container, "question");
                 start = false;
             } else {
-                questionPanel.updateQuestion(questionControl, gameData);
+                if (gameData.isGameOver()) {
+                    JPanel gameOverView = new GameOverPanel(gameOverControl, gameData, questionControl.isPlayer1());
+                    container.add(gameOverView, "end");
+                    cardLayout.show(container, "end");
+                } else {
+                    questionPanel.updateQuestion(questionControl, gameData);
+                }
             }
         }
         // Server sending back a string = error
@@ -87,5 +96,15 @@ public class GameClient extends AbstractClient {
 
     public void setQuestionControl(QuestionControl questionControl) {
         this.questionControl = questionControl;
+    }
+
+    public void setGameOverControl(GameOverControl gameOverControl) {
+        this.gameOverControl = gameOverControl;
+    }
+
+    private void resetState() {
+        questionControl = null;
+        questionPanel = null;
+        start = true;
     }
 }

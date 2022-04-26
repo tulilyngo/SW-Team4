@@ -50,7 +50,7 @@ public class QuestionControl implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         String ans = ae.getActionCommand();
         QuestionData questionData = gameData.getQuestions().get(gameData.getCurrentQuestion());
-        String correctAns = questionData.getAnswers().get(questionData.getAns());
+        String correctAns = questionData.getAns();
 
         JButton currentBtn = (JButton) ae.getSource();
 

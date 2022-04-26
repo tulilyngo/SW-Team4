@@ -1,8 +1,5 @@
 package Database;
 
-import ClientInterface.QuestionPanel;
-import ServerComm.Player;
-
 import java.io.*;
 import java.sql.*;
 import java.util.*;
@@ -98,39 +95,32 @@ public class Database {
         }
     }
 
-    public ArrayList<String> getContacts(Player user) throws SQLException {
-        ArrayList<String> result = query(
-            "SELECT contact_username FROM contacts " + "WHERE username = \"" + user.getUsername() + "\";");
-
-        return result;
+    public boolean getFoundUser() {
+        return foundUser;
     }
-
 
     public List<QuestionData> getQuestions() {
         ArrayList<String> resultQuestion = query(
-            "SELECT * FROM questions;");
+                "SELECT * FROM question;");
 
         int id = 0;
         String question = "";
         List<String> answers;
-        int ans = 0;
-        List<QuestionData> questionData = new ArrayList<>();
+        String ans = "";
+
+        List<QuestionData> questions = new ArrayList<>();
         for (int i = 0; i < resultQuestion.size(); i += 3) {
             id = Integer.parseInt(resultQuestion.get(i));
             question = resultQuestion.get(i + 1);
-            ans = Integer.parseInt(resultQuestion.get(i + 2));
+            ans = resultQuestion.get(i + 2);
 
             List<String> resultAnswer = query(
-                "SELECT answerOrder, answer FROM answers " + "WHERE questionID = \"" + id + "\";");
+                    "SELECT answer FROM answer " + "WHERE questionID = \"" + id + "\";");
 
-            questionData.add(new QuestionData(id, question, resultAnswer, ans));
+            questions.add(new QuestionData(id, question, resultAnswer, ans));
         }
 
-        return questionData;
-    }
-
-    public boolean getFoundUser() {
-        return foundUser;
+        return questions;
     }
 }
 

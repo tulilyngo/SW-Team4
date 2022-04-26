@@ -7,9 +7,9 @@ public class QuestionData implements Serializable {
     private int id;
     private String question;
     List<String> answers;
-    private int ans;
+    private String ans;
 
-    public QuestionData(int id, String question, List<String> answers, int ans) {
+    public QuestionData(int id, String question, List<String> answers, String ans) {
         this.id = id;
         this.question = question;
         this.answers = answers;
@@ -40,11 +40,11 @@ public class QuestionData implements Serializable {
         this.answers = answers;
     }
 
-    public int getAns() {
+    public String getAns() {
         return ans;
     }
 
-    public void setAns(int ans) {
+    public void setAns(String ans) {
         this.ans = ans;
     }
 }

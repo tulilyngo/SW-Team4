@@ -32,7 +32,7 @@ public class CreateAccountControl implements ActionListener {
             createPanel.clearContents();
 
             CardLayout cardLayout = (CardLayout)container.getLayout();
-            cardLayout.show(container, "1");
+            cardLayout.show(container, "initial");
         }
 
         // The Submit button submits the login information to the server
