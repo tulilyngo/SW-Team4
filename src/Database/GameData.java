@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class GameData implements Serializable {
-    private static int currentQuestion = 0;
+    private int currentQuestion = 0;
 
     private List<QuestionData> questions;
     private int player1Score = 0;
@@ -16,12 +16,12 @@ public class GameData implements Serializable {
         this.questions = questions;
     }
 
-    public static int getCurrentQuestion() {
+    public int getCurrentQuestion() {
         return currentQuestion;
     }
 
-    public static void setCurrentQuestion(int currentQuestion) {
-        GameData.currentQuestion = currentQuestion;
+    public void setCurrentQuestion(int currentQuestion) {
+        this.currentQuestion = currentQuestion;
     }
 
     public List<QuestionData> getQuestions() {
@@ -62,5 +62,13 @@ public class GameData implements Serializable {
 
     public void setPlayer1(boolean player1) {
         isPlayer1 = player1;
+    }
+
+    public int getScore() {
+        if (isPlayer1()) {
+            return player1Score;
+        } else {
+            return player2Score;
+        }
     }
 }

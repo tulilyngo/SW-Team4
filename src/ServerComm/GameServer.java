@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import Database.CreateAccountData;
 import Database.Database;
 import Database.LoginData;
+import Database.GameData;
 import ocsf.server.AbstractServer;
 import ocsf.server.ConnectionToClient;
 
@@ -116,6 +117,10 @@ public class GameServer extends AbstractServer {
                     log.append("Failed to send successful create account message to client\n");
                 }
             }
+        }
+        //
+        else if (arg0 instanceof String) {
+            gameLogicControlServer.handleDataFromClient((String) arg0);
         }
     }
 

@@ -35,12 +35,13 @@ public class ClientGUI extends JFrame {
     InitialControl ic = new InitialControl(container);
     LoginControl lc = new LoginControl(container, client);
     CreateAccountControl cc = new CreateAccountControl(container, client);
-//    QuestionControl qc = new QuestionControl(container);
+    QuestionControl qc = new QuestionControl(container, client);
 //    CorrectAnswerControl cac = new CorrectAnswerControl(container);
 
     // Set the controllers in ChatClient
     client.setLoginControl(lc);
     client.setCreateControl(cc);
+    client.setQuestionControl(qc);
 
     // Create the views and associate them with their corresponding controllers View
     JPanel initialView = new InitialPanel(ic);

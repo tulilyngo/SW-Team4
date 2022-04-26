@@ -19,6 +19,10 @@ public class GameClient extends AbstractClient {
     private JPanel container;
     private CardLayout cardLayout;
 
+    QuestionPanel questionPanel;
+
+    boolean start = true;
+
     public GameClient(JPanel container, CardLayout cardLayout) {
         super("localhost",8300);
         this.container = container;
@@ -41,10 +45,16 @@ public class GameClient extends AbstractClient {
         else if (arg0 instanceof GameData) {
             GameData gameData = (GameData) arg0;
 
-            // Start game
-            JPanel questionView = new QuestionPanel(questionControl, gameData);
-            container.add(questionView, "question");
-            cardLayout.show(container, "question");
+            if (start) {
+                // Start game
+                JPanel questionView = new QuestionPanel(questionControl, gameData);
+                questionPanel = (QuestionPanel) questionView;
+                container.add(questionView, "question");
+                cardLayout.show(container, "question");
+                start = false;
+            } else {
+                questionPanel.updateQuestion(questionControl, gameData);
+            }
         }
         // Server sending back a string = error
         else {

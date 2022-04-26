@@ -18,11 +18,15 @@ public class GameLogicControlServer {
     // Store the player size so we can determine when there are two players
     private int players_size = 0;
 
+    GameData dataToSendToClient;
     public GameServer server;
     public JTextArea log;
 
+    private int answersReceived = 0;
+
     public GameLogicControlServer(Database database) {
         this.database = database;
+
     }
 
     public void handleClientConnection(ConnectionToClient client)
@@ -43,6 +47,7 @@ public class GameLogicControlServer {
             List<QuestionData> questions = database.getQuestions();
 
             GameData gameData = new GameData(questions);
+            dataToSendToClient = gameData;
 
             try {
                 gameData.setPlayer1(true);
@@ -57,6 +62,35 @@ public class GameLogicControlServer {
     }
 
     public void handleDataFromClient(String msg) {
+        String[] data = msg.split(",");
+        if (data[0].equals("client submitted answer")) {
+            boolean isPlayer1 = Boolean.parseBoolean(data[1]);
+            int score = Integer.parseInt(data[2]);
+            int questionNum = Integer.parseInt(data[3]);
+
+            answersReceived++;
+            if (answersReceived == 2) {
+                answersReceived = 0;
+                if (isPlayer1) {
+                    dataToSendToClient.setPlayer1Score(score);
+                } else {
+                    dataToSendToClient.setPlayer2Score(score);
+                }
+                dataToSendToClient.setCurrentQuestion(questionNum + 1);
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                server.sendToAllClients(dataToSendToClient);
+            } else {
+                if (isPlayer1) {
+                    dataToSendToClient.setPlayer1Score(score);
+                } else {
+                    dataToSendToClient.setPlayer2Score(score);
+                }
+            }
+        }
     }
 
     public void resetState() {
