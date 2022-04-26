@@ -1,15 +1,10 @@
-package Client;
+package ServerComm;
 
 import java.awt.*;
-import java.io.IOException;
-import java.util.ArrayList;
 
-import Client.CreateAccountView.CreateAccountControl;
-import Client.CreateAccountView.CreateAccountData;
-import Client.LoginView.LoginControl;
-import Client.QuestionView.QuestionControl;
-import Client.QuestionView.QuestionPanel;
-import Server.Player;
+import ClientComm.CreateAccountControl;
+import Database.CreateAccountData;
+import ClientComm.LoginControl;
 import ocsf.client.AbstractClient;
 
 import javax.swing.*;

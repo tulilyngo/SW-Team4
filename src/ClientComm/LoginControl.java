@@ -1,7 +1,9 @@
-package Client.LoginView;
+package ClientComm;
 
-import Client.GameClient;
-import Server.Player;
+import ServerComm.GameClient;
+import Database.LoginData;
+import ClientInterface.LoginPanel;
+import ServerComm.Player;
 
 import javax.swing.*;
 import java.awt.*;

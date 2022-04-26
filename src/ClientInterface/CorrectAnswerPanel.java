@@ -1,4 +1,6 @@
-package Client;
+package ClientInterface;
+
+import ClientComm.CorrectAnswerControl;
 
 import java.awt.*;
 import java.util.Timer;

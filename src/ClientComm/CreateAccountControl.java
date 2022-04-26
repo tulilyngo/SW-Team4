@@ -1,6 +1,8 @@
-package Client.CreateAccountView;
+package ClientComm;
 
-import Client.GameClient;
+import Database.CreateAccountData;
+import ClientInterface.CreateAccountPanel;
+import ServerComm.GameClient;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,6 @@
-package Client.CreateAccountView;
+package ClientInterface;
+
+import ClientComm.CreateAccountControl;
 
 import java.awt.Color;
 import java.awt.GridLayout;

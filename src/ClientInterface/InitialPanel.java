@@ -1,4 +1,6 @@
-package Client.InitialView;
+package ClientInterface;
+
+import ClientComm.InitialControl;
 
 import java.awt.*;
 import javax.swing.*;

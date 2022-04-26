@@ -1,6 +1,6 @@
-package Client.QuestionView;
+package Database;
 
-import Server.Database;
+import Database.Database;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -1,13 +1,10 @@
-package Client;
+package ClientInterface;
 
-import Client.CreateAccountView.CreateAccountControl;
-import Client.CreateAccountView.CreateAccountPanel;
-import Client.InitialView.InitialControl;
-import Client.InitialView.InitialPanel;
-import Client.LoginView.LoginControl;
-import Client.LoginView.LoginPanel;
-import Client.QuestionView.QuestionControl;
-import Client.QuestionView.QuestionPanel;
+import ClientComm.CreateAccountControl;
+import ClientComm.InitialControl;
+import ClientComm.LoginControl;
+import ServerComm.QuestionControl;
+import ServerComm.GameClient;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;

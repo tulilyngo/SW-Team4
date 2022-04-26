@@ -1,6 +1,7 @@
-package Client.QuestionView;
+package ClientInterface;
 
-import Server.Database;
+import ServerComm.QuestionControl;
+import Database.Database;
 
 import java.awt.*;
 import java.util.Timer;

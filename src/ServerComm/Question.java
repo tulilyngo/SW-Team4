@@ -1,4 +1,4 @@
-package Server;
+package ServerComm;
 
 public class Question {
   private int id;

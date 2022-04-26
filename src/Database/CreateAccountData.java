@@ -1,4 +1,4 @@
-package Client.CreateAccountView;
+package Database;
 
 import java.io.Serializable;
 

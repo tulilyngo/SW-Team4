@@ -1,4 +1,7 @@
-package Server;
+package ServerInterface;
+
+import Database.Database;
+import ServerComm.GameServer;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,7 +44,7 @@ public class ServerGUI extends JFrame
       e1.printStackTrace();
     }
     
-    this.setTitle("Server");
+    this.setTitle("ServerComm");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     //---- Panel for status ----

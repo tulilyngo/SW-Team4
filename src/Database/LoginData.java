@@ -1,4 +1,4 @@
-package Client.LoginView;
+package Database;
 
 import java.io.Serializable;
 

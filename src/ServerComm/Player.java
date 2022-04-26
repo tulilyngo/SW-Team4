@@ -1,5 +1,5 @@
 
-package Server;
+package ServerComm;
 
 import java.io.Serializable;
 import java.util.ArrayList;

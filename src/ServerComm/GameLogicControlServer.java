@@ -1,4 +1,4 @@
-package Server;
+package ServerComm;
 
 import ocsf.server.ConnectionToClient;
 import javax.swing.*;

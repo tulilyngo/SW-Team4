@@ -1,7 +1,7 @@
-package Client.InitialView;
+package ClientComm;
 
-import Client.CreateAccountView.CreateAccountPanel;
-import Client.LoginView.LoginPanel;
+import ClientInterface.CreateAccountPanel;
+import ClientInterface.LoginPanel;
 
 import java.awt.*;
 import javax.swing.*;

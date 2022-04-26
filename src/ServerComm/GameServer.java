@@ -1,15 +1,14 @@
-package Server;
+package ServerComm;
 
 import java.awt.*;
 import javax.swing.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import Client.CreateAccountView.CreateAccountData;
-import Client.LoginView.LoginData;
+import Database.CreateAccountData;
+import Database.Database;
+import Database.LoginData;
 import ocsf.server.AbstractServer;
 import ocsf.server.ConnectionToClient;
 
@@ -30,7 +29,7 @@ public class GameServer extends AbstractServer
     glcs.server = this;
   }
   
-  void setDatabase(Database database)
+  public void setDatabase(Database database)
   {
     this.database = database;
   }

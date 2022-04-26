@@ -1,4 +1,4 @@
-package Client.QuestionView;
+package ClientInterface;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

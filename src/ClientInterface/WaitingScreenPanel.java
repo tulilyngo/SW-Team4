@@ -1,16 +1,11 @@
-package Client;
+package ClientInterface;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class WaitingScreenPanel extends JPanel {
   public WaitingScreenPanel()

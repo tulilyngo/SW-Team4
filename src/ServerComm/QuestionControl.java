@@ -1,6 +1,6 @@
-package Client.QuestionView;
+package ServerComm;
 
-import Client.CreateAccountView.CreateAccountPanel;
+import ClientInterface.CreateAccountPanel;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,6 @@
-package Client.LoginView;
+package ClientInterface;
+
+import ClientComm.LoginControl;
 
 import java.awt.*;
 import javax.swing.*;

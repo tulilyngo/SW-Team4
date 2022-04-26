@@ -3,14 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="fe024252-397b-490f-a8a5-20efb31bff3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ContactPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/GameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/GameServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/GameServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/ClientGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/CorrectAnswerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/CorrectAnswerControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/CorrectAnswerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/CorrectAnswerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/CreateAccountControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/CreateAccountData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/CreateAccountView/CreateAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/CreateAccountPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/InitialView/InitialControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/InitialControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/InitialView/InitialPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/InitialPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientComm/LoginControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/LoginData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/LoginView/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/LoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionBeginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/QuestionBeginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/QuestionControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/QuestionData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/QuestionView/QuestionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/QuestionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/WaitingScreenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientInterface/WaitingScreenPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/GameLogicControlServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameLogicControlServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/GameServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/GameServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerComm/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerInterface/ServerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +63,23 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ServerInterface" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Server" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientGUI">
     <configuration name="ClientGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Client.ClientGUI" />
+      <option name="MAIN_CLASS_NAME" value="ClientInterface.ClientGUI" />
       <module name="SW-Team4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Client.*" />
+          <option name="PATTERN" value="ServerInterface.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -65,11 +88,11 @@
       </method>
     </configuration>
     <configuration name="ServerGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.ServerGUI" />
+      <option name="MAIN_CLASS_NAME" value="ServerInterface.ServerGUI" />
       <module name="SW-Team4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Server.*" />
+          <option name="PATTERN" value="Database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,43 +134,43 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client/LoginView/LoginControl.java</url>
+          <url>file://$PROJECT_DIR$/src/ClientComm/LoginControl.java</url>
           <line>70</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
-          <line>38</line>
+          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
+          <line>34</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
-          <line>61</line>
+          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
+          <line>57</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
-          <line>48</line>
+          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
+          <line>44</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/GameLogicControlServer.java</url>
+          <url>file://$PROJECT_DIR$/src/ServerComm/GameLogicControlServer.java</url>
           <line>27</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/GameServer.java</url>
-          <line>98</line>
+          <url>file://$PROJECT_DIR$/src/ServerComm/GameServer.java</url>
+          <line>96</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client/GameClient.java</url>
-          <line>33</line>
+          <url>file://$PROJECT_DIR$/src/ServerComm/GameClient.java</url>
+          <line>29</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/GameServer.java</url>
-          <line>94</line>
+          <url>file://$PROJECT_DIR$/src/ServerComm/GameServer.java</url>
+          <line>92</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

@@ -1,4 +1,4 @@
-package Client;
+package ClientComm;
 
 import java.awt.CardLayout;
 

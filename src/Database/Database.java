@@ -1,4 +1,6 @@
-package Server;
+package Database;
+
+import ServerComm.Player;
 
 import java.io.*;
 import java.sql.*;
@@ -17,7 +19,7 @@ public class Database {
   public Database() throws IOException {
     // Read properties file
     Properties prop = new Properties();
-    FileInputStream fis = new FileInputStream("src/Server/db.properties");
+    FileInputStream fis = new FileInputStream("src/db.properties");
     prop.load(fis);
     String url = prop.getProperty("url");
     String user = prop.getProperty("user");
