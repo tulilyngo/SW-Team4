@@ -46,7 +46,8 @@ public class Database {
             if (!rs.next()) {
                 System.out.println("Result set is empty.");
                 return null;
-            } else {
+            }
+            else {
                 do {
                     // Get metadata about the query
                     ResultSetMetaData rmd = rs.getMetaData();
@@ -76,7 +77,7 @@ public class Database {
 
     public void findUser(Player user) throws SQLException {
         ArrayList<String> result = query("SELECT username, password FROM client " + "WHERE username = \""
-                + user.getUsername() + "\" " + "AND password = aes_encrypt(\"" + user.getPassword() + "\",\"" + key + "\");");
+            + user.getUsername() + "\" " + "AND password = aes_encrypt(\"" + user.getPassword() + "\",\"" + key + "\");");
 
         if (result == null) {
             foundUser = false;
@@ -89,7 +90,7 @@ public class Database {
     public void addUser(Player user) {
         try {
             executeDML("INSERT INTO client " + "VALUES (\"" + user.getUsername() + "\"," + "aes_encrypt(\""
-                    + user.getPassword() + "\",\"" + key + "\"));");
+                + user.getPassword() + "\",\"" + key + "\"));");
             foundUser = false;
         } catch (SQLException e) {
             foundUser = true;
@@ -98,18 +99,37 @@ public class Database {
 
     public ArrayList<String> getContacts(Player user) throws SQLException {
         ArrayList<String> result = query(
-                "SELECT contact_username FROM contacts " + "WHERE username = \"" + user.getUsername() + "\";");
+            "SELECT contact_username FROM contacts " + "WHERE username = \"" + user.getUsername() + "\";");
 
         return result;
     }
 
-    public ArrayList<String> getQuestions() throws SQLException {
-        ArrayList<String> result = query("SELECT question FROM questions;");
+    public List<QuestionData> getQuestions() {
+        ArrayList<String> resultQuestion = query(
+            "SELECT * FROM questions;");
 
-        return result;
+        int id = 0;
+        String question = "";
+        List<String> answers;
+        int ans = 0;
+        List<QuestionData> questionData = new ArrayList<>();
+        for (int i = 0; i < resultQuestion.size(); i += 3) {
+            id = Integer.parseInt(resultQuestion.get(i));
+            question = resultQuestion.get(i + 1);
+            ans = Integer.parseInt(resultQuestion.get(i + 2));
+
+            List<String> resultAnswer = query(
+                "SELECT answerOrder, answer FROM answers " + "WHERE questionID = \"" + id + "\";");
+
+            questionData.add(new QuestionData(id, question, resultAnswer, ans));
+        }
+
+        return questionData;
     }
 
     public boolean getFoundUser() {
         return foundUser;
     }
 }
+
+

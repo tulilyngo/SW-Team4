@@ -1,5 +1,7 @@
 package Database;
 
+import ServerComm.Question;
+
 import java.util.List;
 
 public class QuestionData {
@@ -7,6 +9,13 @@ public class QuestionData {
     private String question;
     List<String> answers;
     private int ans;
+
+    public QuestionData(int id, String question, List<String> answers, int ans) {
+        this.id = id;
+        this.question = question;
+        this.answers = answers;
+        this.ans = ans;
+    }
 
     public int getId() {
         return id;
