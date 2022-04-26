@@ -11,10 +11,12 @@ import javax.swing.JPanel;
 public class QuestionControl implements ActionListener {
   // Private data field for storing the container.
   private JPanel container;
+  private GameClient client;
 
   // Constructor for the initial controller.
-  public QuestionControl(JPanel container) {
+  public QuestionControl(JPanel container, GameClient client) {
     this.container = container;
+    this.client = client;
   }
 
   // Handle button clicks.

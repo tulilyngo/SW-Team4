@@ -17,26 +17,27 @@ public class GameServer extends AbstractServer {
     private JTextArea log;
     private JLabel status;
     private Database database;
-    private GameLogicControlServer glcs;
+    private GameLogicControlServer gameLogicControlServer;
     private Integer numPlayers = 0;
 
     // Constructor for initializing the server with default settings.
     public GameServer() {
         super(12345);
-        glcs = new GameLogicControlServer();
-        glcs.server = this;
-
         // Declare Database object
         try {
             database = new Database();
         } catch (IOException e) {
             log.append("Failed to connect to database: " + e.getMessage() + "\n");
         }
+        gameLogicControlServer = new GameLogicControlServer(database);
+        gameLogicControlServer.server = this;
     }
 
     public void setLog(JTextArea log)
     {
         this.log = log;
+        gameLogicControlServer.log = this.log;
+        log.append(log.getText());
     }
 
     public JTextArea getLog() {
@@ -69,7 +70,7 @@ public class GameServer extends AbstractServer {
             // If user found, send current # players to client
             if (database.getFoundUser()) {
                 log.append("Log in for client " + loginData.getUsername() + " successful\n");
-                glcs.handleClientConnection(arg1);
+                gameLogicControlServer.handleClientConnection(arg1);
                 numPlayers++;
                 try {
                     arg1.sendToClient(numPlayers);

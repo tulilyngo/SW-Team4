@@ -1,5 +1,6 @@
 package Database;
 
+import ClientInterface.QuestionPanel;
 import ServerComm.Player;
 
 import java.io.*;
@@ -103,6 +104,7 @@ public class Database {
 
         return result;
     }
+
 
     public List<QuestionData> getQuestions() {
         ArrayList<String> resultQuestion = query(

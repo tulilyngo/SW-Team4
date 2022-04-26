@@ -1,26 +1,27 @@
 package ClientInterface;
 
 import ServerComm.QuestionControl;
-import Database.Database;
+import Database.GameData;
+import Database.QuestionData;
 
 import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.List;
 
 import javax.swing.*;
 
 public class QuestionPanel extends JPanel {
-  private QuestionControl qc;
-  private Database database;
+  private QuestionControl questionControl;
 
-  public QuestionPanel(QuestionControl qc) {
+  public QuestionPanel(QuestionControl questionControl, GameData gameData) {
+    QuestionData questionData = gameData.getQuestions().get(gameData.getCurrentQuestion());
 
     // ---------- Question Label Panel ----------
     JPanel labelPanel = new JPanel(new GridLayout(1, 1));
 
     JLabel questionLabel = new JLabel("Question", JLabel.CENTER);
-//    ArrayList<String> questions = database.getQuestions();
-//    questionLabel.setText(questions.get(0));
+    questionLabel.setText(questionData.getQuestion());
     questionLabel.setFont(new Font("Serif", Font.BOLD, 16));
     questionLabel.setBackground(Color.decode("#fefffe"));
     questionLabel.setOpaque(true);
@@ -48,7 +49,7 @@ public class QuestionPanel extends JPanel {
         if (i < 0) {
           timer.cancel();
           timerLabel.setText("Time Over");
-          qc.direct();
+          questionControl.direct();
         }
       }
     }, 0, 1000);
@@ -59,12 +60,13 @@ public class QuestionPanel extends JPanel {
     centerPanel.add(noAnswers);
 
     // ---------- Answers Label Panel ----------
+    List<String> options = questionData.getAnswers();
     JPanel answerPanel = new JPanel(new GridLayout(2, 2, 5, 5));
 
-    JButton answer1 = new JButton("Answer 1");
-    JButton answer2 = new JButton("Answer 2");
-    JButton answer3 = new JButton("Answer 3");
-    JButton answer4 = new JButton("Answer 4");
+    JButton answer1 = new JButton(options.get(0));
+    JButton answer2 = new JButton(options.get(1));
+    JButton answer3 = new JButton(options.get(2));
+    JButton answer4 = new JButton(options.get(3));
 
     answer1.setPreferredSize(new Dimension(200, 50));
     answer2.setPreferredSize(new Dimension(200, 50));
@@ -91,10 +93,10 @@ public class QuestionPanel extends JPanel {
     answer4.setBorderPainted(false);
     answer4.setForeground(Color.decode("#fefffe"));
 
-    answer1.addActionListener(qc);
-    answer2.addActionListener(qc);
-    answer3.addActionListener(qc);
-    answer4.addActionListener(qc);
+    answer1.addActionListener(questionControl);
+    answer2.addActionListener(questionControl);
+    answer3.addActionListener(questionControl);
+    answer4.addActionListener(questionControl);
 
     answerPanel.add(answer1);
     answerPanel.add(answer2);

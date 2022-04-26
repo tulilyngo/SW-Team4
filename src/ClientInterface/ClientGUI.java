@@ -20,23 +20,22 @@ public class ClientGUI extends JFrame {
     this.setTitle("Play Trivia!");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    client = new GameClient();
+    // Create the card layout container.
+    CardLayout cardLayout = new CardLayout();
+    JPanel container = new JPanel(cardLayout);
+
+    client = new GameClient(container, cardLayout);
     try {
       client.openConnection();
     } catch (IOException e) {
       e.printStackTrace();
     }
 
-    // Create the card layout container.
-    CardLayout cardLayout = new CardLayout();
-    JPanel container = new JPanel(cardLayout);
-    client.container = container;
-
     // Create the Controllers next
     InitialControl ic = new InitialControl(container);
     LoginControl lc = new LoginControl(container, client);
     CreateAccountControl cc = new CreateAccountControl(container, client);
-    QuestionControl qc = new QuestionControl(container);
+//    QuestionControl qc = new QuestionControl(container);
 //    CorrectAnswerControl cac = new CorrectAnswerControl(container);
 
     // Set the controllers in ChatClient
@@ -48,14 +47,14 @@ public class ClientGUI extends JFrame {
     JPanel loginView = new LoginPanel(lc);
     JPanel createAccountView = new CreateAccountPanel(cc);
     JPanel watingScreenView = new WaitingScreenPanel();
-    JPanel questionView = new QuestionPanel(qc);
+//    JPanel questionView = new QuestionPanel(qc);
 
     // Add the views to the card layout container
     container.add(initialView, "initial");
     container.add(loginView, "login");
     container.add(createAccountView, "create");
     container.add(watingScreenView, "wait");
-    container.add(questionView, "question");
+//    container.add(questionView, "question");
 
     // Show the initial view in the card layout.
     cardLayout.show(container, "initial");

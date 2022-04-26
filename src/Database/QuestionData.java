@@ -1,10 +1,9 @@
 package Database;
 
-import ServerComm.Question;
-
+import java.io.Serializable;
 import java.util.List;
 
-public class QuestionData {
+public class QuestionData implements Serializable {
     private int id;
     private String question;
     List<String> answers;

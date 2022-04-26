@@ -3,8 +3,10 @@ package ServerComm;
 import java.awt.*;
 
 import ClientComm.CreateAccountControl;
+import ClientInterface.QuestionPanel;
 import Database.CreateAccountData;
 import ClientComm.LoginControl;
+import Database.GameData;
 import ocsf.client.AbstractClient;
 
 import javax.swing.*;
@@ -14,11 +16,13 @@ public class GameClient extends AbstractClient {
     private CreateAccountControl createAccountControl;
     private QuestionControl questionControl;
 
-    public JPanel container;
+    private JPanel container;
+    private CardLayout cardLayout;
 
-    public GameClient()
-    {
+    public GameClient(JPanel container, CardLayout cardLayout) {
         super("localhost",8300);
+        this.container = container;
+        this.cardLayout = cardLayout;
     }
 
     @Override
@@ -34,9 +38,17 @@ public class GameClient extends AbstractClient {
         else if (arg0 instanceof CreateAccountData) {
             createAccountControl.createSuccess();
         }
+        else if (arg0 instanceof GameData) {
+            GameData gameData = (GameData) arg0;
+
+            // Start game
+            JPanel questionView = new QuestionPanel(questionControl, gameData);
+            container.add(questionView, "question");
+            cardLayout.show(container, "question");
+        }
         // Server sending back a string = error
         else {
-            String msg = (String)arg0;
+            String msg = (String) arg0;
 
             // Determine which panel the error msg belongs to
             if (msg.equals("Cannot find log in info. Check username/password or create an account.")) {
@@ -44,11 +56,6 @@ public class GameClient extends AbstractClient {
             }
             else if (msg.equals("Username already existed.")) {
                 createAccountControl.displayError(msg);
-            }
-            else if (msg.equals("start")) {
-                // initialize the game
-                CardLayout cardLayout = (CardLayout)container.getLayout();
-                cardLayout.show(container, "question");
             }
         }
     }
@@ -59,13 +66,15 @@ public class GameClient extends AbstractClient {
         exception.printStackTrace();
     }
 
-    public void setLoginControl(LoginControl lc)
-    {
-        this.loginControl = lc;
+    public void setLoginControl(LoginControl loginControl) {
+        this.loginControl = loginControl;
     }
 
-    public void setCreateControl(CreateAccountControl cc)
-    {
-        this.createAccountControl = cc;
+    public void setCreateControl(CreateAccountControl createAccountControl) {
+        this.createAccountControl = createAccountControl;
+    }
+
+    public void setQuestionControl(QuestionControl questionControl) {
+        this.questionControl = questionControl;
     }
 }
