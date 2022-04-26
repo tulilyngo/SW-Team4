@@ -5,8 +5,6 @@ import Database.GameData;
 import Database.QuestionData;
 
 import java.awt.*;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.List;
 
 import javax.swing.*;
@@ -16,6 +14,8 @@ public class QuestionPanel extends JPanel {
     private JLabel questionLabel;
     private JPanel centerPanel;
     private JLabel noAnswers;
+    private JLabel yourScore;
+    private JLabel opponentScore;
     private JPanel answerPanel;
     private JButton answer1;
     private JButton answer2;
@@ -23,9 +23,12 @@ public class QuestionPanel extends JPanel {
     private JButton answer4;
     private JPanel grid;
 
+    private boolean isPlayer1;
+
     public QuestionPanel(QuestionControl questionControl, GameData gameData) {
         questionControl.setGameData(gameData);
         questionControl.setPlayer1(gameData.isPlayer1());
+        isPlayer1 = gameData.isPlayer1();
         QuestionData questionData = gameData.getQuestions().get(gameData.getCurrentQuestion());
 
         // ---------- Question Label Panel ----------
@@ -41,9 +44,20 @@ public class QuestionPanel extends JPanel {
         labelPanel.add(questionLabel);
 
         // ---------- Center Panel for No of answers submitted ----------
-        centerPanel = new JPanel(new GridLayout(1, 1, 0, 0));
+        centerPanel = new JPanel(new GridLayout(1, 3, 0, 0));
+
         noAnswers = new JLabel("0 Answers", JLabel.CENTER);
         centerPanel.add(noAnswers);
+
+        if (isPlayer1) {
+            yourScore = new JLabel("You: " + gameData.getPlayer1Score(), JLabel.CENTER);
+            opponentScore = new JLabel("Opponent: " + gameData.getPlayer2Score(), JLabel.CENTER);
+        } else {
+            yourScore = new JLabel("You: " + gameData.getPlayer2Score(), JLabel.CENTER);
+            opponentScore = new JLabel("Opponent: " + gameData.getPlayer1Score(), JLabel.CENTER);
+        }
+        centerPanel.add(yourScore);
+        centerPanel.add(opponentScore);
 
         // ---------- Answers Label Panel ----------
         List<String> options = questionData.getAnswers();
@@ -132,7 +146,23 @@ public class QuestionPanel extends JPanel {
         answer4.setForeground(Color.WHITE);
     }
 
-    public void updateNumAnswers(String numAnswers) {
-        noAnswers.setText(numAnswers);
+    public void updateGameStats(String stats) {
+        String[] statVals = stats.split(";");
+        boolean statForPlayer1 = Boolean.parseBoolean(statVals[0]);
+
+        noAnswers.setText(statVals[1]);
+        if (statForPlayer1) {
+            if (isPlayer1) {
+                yourScore.setText("You: " + statVals[2]);
+            } else {
+                opponentScore.setText("Opponent: " + statVals[2]);
+            }
+        } else {
+            if (isPlayer1) {
+                opponentScore.setText("Opponent: " + statVals[2]);
+            } else {
+                yourScore.setText("You: " + statVals[2]);
+            }
+        }
     }
 }

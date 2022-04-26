@@ -65,8 +65,8 @@ public class GameClient extends AbstractClient {
                 loginControl.displayError(msg);
             } else if (msg.equals("Username already existed.")) {
                 createAccountControl.displayError(msg);
-            } else if (msg.contains("Answers")) {
-                questionPanel.updateNumAnswers(msg);
+            } else if (msg.contains(";")) {
+                questionPanel.updateGameStats(msg);
             }
         }
     }

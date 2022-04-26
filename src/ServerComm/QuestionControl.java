@@ -35,6 +35,10 @@ public class QuestionControl implements ActionListener {
         isPlayer1 = player1;
     }
 
+    public boolean isPlayer1() {
+        return isPlayer1;
+    }
+
     public void setBtns(JButton... btns) {
         this.btns = new ArrayList<>();
         for (JButton btn : btns) {
