@@ -63,9 +63,10 @@ public class GameClient extends AbstractClient {
             // Determine which panel the error msg belongs to
             if (msg.equals("Cannot find log in info. Check username/password or create an account.")) {
                 loginControl.displayError(msg);
-            }
-            else if (msg.equals("Username already existed.")) {
+            } else if (msg.equals("Username already existed.")) {
                 createAccountControl.displayError(msg);
+            } else if (msg.contains("Answers")) {
+                questionPanel.updateNumAnswers(msg);
             }
         }
     }

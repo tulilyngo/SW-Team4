@@ -70,6 +70,7 @@ public class GameLogicControlServer {
 
             answersReceived++;
             if (answersReceived == 2) {
+                server.sendToAllClients(answersReceived + " Answers");
                 answersReceived = 0;
                 if (isPlayer1) {
                     dataToSendToClient.setPlayer1Score(score);
@@ -89,6 +90,7 @@ public class GameLogicControlServer {
                 } else {
                     dataToSendToClient.setPlayer2Score(score);
                 }
+                server.sendToAllClients(answersReceived + " Answers");
             }
         }
     }

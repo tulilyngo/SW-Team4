@@ -15,7 +15,7 @@ public class QuestionPanel extends JPanel {
     private JPanel labelPanel;
     private JLabel questionLabel;
     private JPanel centerPanel;
-    private JLabel timerLabel;
+    private JLabel noAnswers;
     private JPanel answerPanel;
     private JButton answer1;
     private JButton answer2;
@@ -40,35 +40,10 @@ public class QuestionPanel extends JPanel {
 
         labelPanel.add(questionLabel);
 
-        // ---------- Center Panel for Timer and No of answers submitted ----------
-        centerPanel = new JPanel(new GridLayout(1, 2, 0, 0));
-
-//        timerLabel = new JLabel("", JLabel.CENTER);
-//    timerLabel.setBackground(Color.decode("#874cbe"));
-//    timerLabel.setOpaque(true);
-//    timerLabel.setForeground(Color.decode("#fefffe"));
-//    timerLabel.setFont(new Font("Serif", Font.PLAIN, 28));
-//        Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            int i = 20;
-//
-//            public void run() {
-//
-//                timerLabel.setText("Time left: " + i);
-//                i--;
-//
-//                if (i < 0) {
-//                    timer.cancel();
-//                    timerLabel.setText("Time Over");
-//                    questionControl.direct();
-//                }
-//            }
-//        }, 0, 1000);
-
-//        JLabel noAnswers = new JLabel("0 Answers", JLabel.CENTER);
-
-//        centerPanel.add(timerLabel);
-//        centerPanel.add(noAnswers);
+        // ---------- Center Panel for No of answers submitted ----------
+        centerPanel = new JPanel(new GridLayout(1, 1, 0, 0));
+        noAnswers = new JLabel("0 Answers", JLabel.CENTER);
+        centerPanel.add(noAnswers);
 
         // ---------- Answers Label Panel ----------
         List<String> options = questionData.getAnswers();
@@ -129,6 +104,7 @@ public class QuestionPanel extends JPanel {
         QuestionData questionData = gameData.getQuestions().get(gameData.getCurrentQuestion());
         List<String> options = questionData.getAnswers();
 
+        noAnswers.setText("0 Answers");
         questionLabel.setText(questionData.getQuestion());
 
         answer1.setBackground(Color.BLACK);
@@ -154,5 +130,9 @@ public class QuestionPanel extends JPanel {
         answer4.setOpaque(true);
         answer4.setBorderPainted(false);
         answer4.setForeground(Color.WHITE);
+    }
+
+    public void updateNumAnswers(String numAnswers) {
+        noAnswers.setText(numAnswers);
     }
 }
