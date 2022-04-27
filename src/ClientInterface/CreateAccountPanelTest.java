@@ -14,9 +14,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-class CreateAccountPanelTest {
+public class CreateAccountPanelTest {
     private static CreateAccountPanel panel;
     private CreateAccountControl cc;
 
@@ -65,6 +65,9 @@ class CreateAccountPanelTest {
 
         cardLayout.show(container, "3");
         clientFrame.add(container, BorderLayout.CENTER);
+
+        clientFrame.setSize(800, 500);
+        clientFrame.setVisible(true);
 
         Thread.sleep(1000);
         panel.setUsernameField("testUser");

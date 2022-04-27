@@ -3,52 +3,47 @@ package Database;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class CreateAccountDataTest {
+public class CreateAccountDataTest {
     private CreateAccountData cad;
-    private Database db;
 
     @Before
-    public void setUp() throws Exception
-    {
-        CreateAccountData cad = new CreateAccountData(null, null, null);
+    public void setUp() {
+        cad = new CreateAccountData("test", "test", "test");
     }
 
     @Test //Non-Null Object
     public void testNonNull()
     {
-        Object obj = cad.getUsername();
-        assertNotNull(obj, "Username returns null");
+        String obj = cad.getUsername();
+        assertEquals("test", obj);
 
-        Object objP = cad.getPassword();
-        assertNotNull(objP, "Password returns null");
+        obj = cad.getPassword();
+        assertEquals("test", obj);
 
-        Object objP2 = cad.getPassword2nd();
-        assertNotNull(objP2, "Password 2nd returns null");
+        obj = cad.getPassword2nd();
+        assertEquals("test", obj);
     }
 
     @Test
-    public void testsetUsername(String username)
+    public void testSetUsername()
     {
-        CreateAccountData cad = new CreateAccountData(username, null, null);
         cad.setUsername("testUser");
         assertEquals("testUser", cad.getUsername());
     }
 
     @Test
-    public void testsetPassword(String password)
+    public void testSetPassword()
     {
-        CreateAccountData cad = new CreateAccountData(null, password, null);
         cad.setPassword("hello123");
         assertEquals("hello123", cad.getPassword());
     }
 
     @Test
-    public void testsetPassword2nd(String password2nd)
+    public void testSetPassword2nd()
     {
-        CreateAccountData cad = new CreateAccountData(null, password2nd, null);
         cad.setPassword2nd("hello123");
-        assertEquals("hello123", cad.getPassword());
+        assertEquals("hello123", cad.getPassword2nd());
     }
 }
