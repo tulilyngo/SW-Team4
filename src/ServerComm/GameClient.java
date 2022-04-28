@@ -65,9 +65,15 @@ public class GameClient extends AbstractClient {
                 start = false;
             } else {
                 if (gameData.isGameOver()) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     JPanel gameOverView = new GameOverPanel(gameOverControl, gameData, isPlayer1);
                     container.add(gameOverView, "end");
                     cardLayout.show(container, "end");
+                    resetState();
                 } else {
                     questionPanel.updateQuestion(questionControl, gameData);
                 }
@@ -112,5 +118,10 @@ public class GameClient extends AbstractClient {
 
     public boolean isPlayer1() {
         return isPlayer1;
+    }
+
+    private void resetState() {
+        start = true;
+        isPlayer1 = false;
     }
 }

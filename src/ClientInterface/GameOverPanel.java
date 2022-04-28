@@ -10,6 +10,7 @@ import java.util.List;
 
 public class GameOverPanel extends JPanel {
     private JLabel statusLabel;
+    private JLabel scoreLabel;
     private JLabel resultLabel;
     private JButton exit;
     private JButton playAgain;
@@ -22,6 +23,16 @@ public class GameOverPanel extends JPanel {
         statusLabel.setFont(new Font("Serif", Font.BOLD, 16));
 
         List<Player> players = gameData.getPlayers();
+
+        if (isPlayer1) {
+            scoreLabel = new JLabel(
+                    players.get(0).getScore() + "/" + gameData.getQuestions().size() + " answered correctly",
+                    JLabel.CENTER);
+        } else {
+            scoreLabel = new JLabel(
+                    players.get(1).getScore() + "/" + gameData.getQuestions().size() + " answered correctly",
+                    JLabel.CENTER);
+        }
 
         if (players.get(0).getScore() > players.get(1).getScore()) {
             if (isPlayer1) {
@@ -50,6 +61,7 @@ public class GameOverPanel extends JPanel {
 
         labelPanel = new JPanel(new GridLayout(3, 1, 5, 5));
         labelPanel.add(statusLabel);
+        labelPanel.add(scoreLabel);
         labelPanel.add(resultLabel);
 
         // Arrange the components

@@ -144,6 +144,7 @@ public class GameServer extends AbstractServer {
         log.append("Server stopped accepting new clients - Press Listen to start accepting new clients\n");
         status.setText("Stopped");
         status.setForeground(Color.RED);
+        numPlayers = 0;
     }
 
     protected void serverClosed() {

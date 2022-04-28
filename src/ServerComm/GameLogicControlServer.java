@@ -92,14 +92,30 @@ public class GameLogicControlServer {
                     }
                 } else {
                     dataToSendToClient.setGameOver(true);
-                    try {
-                        server.listen();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    resetState();
                 }
                 server.sendToAllClients(dataToSendToClient);
             }
+        }
+    }
+
+    public int getNumPlayers() {
+        return numPlayers;
+    }
+
+    private void resetState() {
+        player1Connection = null;
+        player2Connection = null;
+        player1 = null;
+        player2 = null;
+        numPlayers = 0;
+        numQuestions = 0;
+        answersReceived = 0;
+
+        try {
+            server.listen();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

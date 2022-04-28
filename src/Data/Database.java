@@ -103,10 +103,9 @@ public class Database {
         ArrayList<String> resultQuestion = query(
                 "SELECT * FROM question;");
 
-        int id = 0;
-        String question = "";
-        List<String> answers;
-        String ans = "";
+        int id;
+        String question;
+        String ans;
 
         List<QuestionData> questions = new ArrayList<>();
         for (int i = 0; i < resultQuestion.size(); i += 3) {
