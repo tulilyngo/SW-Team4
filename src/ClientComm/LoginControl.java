@@ -1,9 +1,9 @@
 package ClientComm;
 
 import ServerComm.GameClient;
-import Database.LoginData;
+import Data.LoginData;
 import ClientInterface.LoginPanel;
-import Database.Player;
+import Data.Player;
 
 import javax.swing.*;
 import java.awt.*;

@@ -6,9 +6,9 @@ import ClientComm.CreateAccountControl;
 import ClientComm.GameOverControl;
 import ClientInterface.GameOverPanel;
 import ClientInterface.QuestionPanel;
-import Database.CreateAccountData;
+import Data.CreateAccountData;
 import ClientComm.LoginControl;
-import Database.GameData;
+import Data.GameData;
 import ocsf.client.AbstractClient;
 
 import javax.swing.*;
@@ -23,6 +23,8 @@ public class GameClient extends AbstractClient {
     private CardLayout cardLayout;
 
     QuestionPanel questionPanel;
+
+    private boolean isPlayer1;
 
     boolean start = true;
 
@@ -39,7 +41,13 @@ public class GameClient extends AbstractClient {
         }
         // Sever sends an integer = successful login, the integer is the # players currently in the game
         else if (arg0 instanceof Integer) {
-            loginControl.loginSuccess((Integer) arg0);
+            int playerNum = (Integer) arg0;
+            if (playerNum == 1) {
+                isPlayer1 = true;
+            } else {
+                isPlayer1 = false;
+            }
+            loginControl.loginSuccess(playerNum);
         }
         // Server sending back a CreateAccountData instance = successful creation
         else if (arg0 instanceof CreateAccountData) {
@@ -57,7 +65,7 @@ public class GameClient extends AbstractClient {
                 start = false;
             } else {
                 if (gameData.isGameOver()) {
-                    JPanel gameOverView = new GameOverPanel(gameOverControl, gameData, questionControl.isPlayer1());
+                    JPanel gameOverView = new GameOverPanel(gameOverControl, gameData, isPlayer1);
                     container.add(gameOverView, "end");
                     cardLayout.show(container, "end");
                 } else {
@@ -75,7 +83,7 @@ public class GameClient extends AbstractClient {
             } else if (msg.equals("Username already existed.")) {
                 createAccountControl.displayError(msg);
             } else if (msg.contains(";")) {
-                questionPanel.updateGameStats(msg);
+                questionPanel.updateGameStats(msg, isPlayer1);
             }
         }
     }
@@ -102,9 +110,7 @@ public class GameClient extends AbstractClient {
         this.gameOverControl = gameOverControl;
     }
 
-    private void resetState() {
-        questionControl = null;
-        questionPanel = null;
-        start = true;
+    public boolean isPlayer1() {
+        return isPlayer1;
     }
 }

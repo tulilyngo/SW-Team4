@@ -1,6 +1,5 @@
 package ServerInterface;
 
-import Database.Database;
 import ServerComm.GameServer;
 
 import java.awt.*;

@@ -1,7 +1,8 @@
 package ServerComm;
 
-import Database.GameData;
-import Database.QuestionData;
+import Data.GameData;
+import Data.Player;
+import Data.QuestionData;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +19,6 @@ public class QuestionControl implements ActionListener {
     private GameClient client;
 
     private GameData gameData;
-    private boolean isPlayer1;
     private List<JButton> btns;
 
     // Constructor for the initial controller.
@@ -31,14 +31,6 @@ public class QuestionControl implements ActionListener {
         this.gameData = gameData;
     }
 
-    public void setPlayer1(boolean player1) {
-        isPlayer1 = player1;
-    }
-
-    public boolean isPlayer1() {
-        return isPlayer1;
-    }
-
     public void setBtns(JButton... btns) {
         this.btns = new ArrayList<>();
         for (JButton btn : btns) {
@@ -49,6 +41,7 @@ public class QuestionControl implements ActionListener {
     // Handle button clicks.
     public void actionPerformed(ActionEvent ae) {
         String ans = ae.getActionCommand();
+
         QuestionData questionData = gameData.getQuestions().get(gameData.getCurrentQuestion());
         String correctAns = questionData.getAns();
 
@@ -65,16 +58,20 @@ public class QuestionControl implements ActionListener {
             btn.setOpaque(true);
         }
 
+        // Which is the current player?
+        int score;
+        if (client.isPlayer1()) {
+            score = gameData.getPlayers().get(0).getScore();
+        } else {
+            score = gameData.getPlayers().get(1).getScore();
+        }
+
         if (ans.equals(correctAns)) {
             // If the chosen answer is correct, paint it green
             currentBtn.setBackground(Color.GREEN);
 
-            // Update score for the appropriate player
-            if (isPlayer1) {
-                gameData.setPlayer1Score(gameData.getPlayer1Score() + 1);
-            } else {
-                gameData.setPlayer2Score(gameData.getPlayer2Score() + 1);
-            }
+            // Update score
+            score++;
         } else {
             // If the chosen answer is incorrect, paint it red
             currentBtn.setBackground(Color.RED);
@@ -83,18 +80,11 @@ public class QuestionControl implements ActionListener {
 
         try {
             client.sendToServer(String.format(
-                    "client submitted answer,%b,%d,%d", isPlayer1, gameData.getScore(), gameData.getCurrentQuestion()
+                    "client submitted answer,%b,%d,%d", client.isPlayer1(), score, gameData.getCurrentQuestion()
             ));
 
         } catch (IOException e) {
             System.out.println("Failed to send score update to server");
         }
-    }
-
-    // Handle timer
-    public void direct() {
-        CardLayout cardLayout = (CardLayout) container.getLayout();
-        cardLayout.show(container, "2");
-        System.out.println("To Correct Answer Panel");
     }
 }

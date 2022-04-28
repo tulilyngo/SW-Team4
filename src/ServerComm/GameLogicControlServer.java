@@ -1,17 +1,22 @@
 package ServerComm;
 
-import Database.Database;
-import Database.GameData;
-import Database.QuestionData;
+import Data.Database;
+import Data.GameData;
+import Data.QuestionData;
+import Data.Player;
 import ocsf.server.ConnectionToClient;
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class GameLogicControlServer {
     // Store the players so we can send message to them individually
-    ConnectionToClient player1;
-    ConnectionToClient player2;
+    ConnectionToClient player1Connection;
+    ConnectionToClient player2Connection;
+
+    Player player1;
+    Player player2;
 
     Database database;
 
@@ -29,18 +34,20 @@ public class GameLogicControlServer {
         this.database = database;
     }
 
-    public void handleClientConnection(ConnectionToClient client)
+    public void handleClientConnection(ConnectionToClient client, Player player)
     {
         if (numPlayers == 0) {
             numPlayers++;
-            player1 = client;
+            player1Connection = client;
+            player1 = player;
         }
         else {
             numPlayers = 0;
-            player2 = client;
+            player2Connection = client;
+            player2 = player;
         }
 
-        if (player1 != null && player2 != null) {
+        if (player1Connection != null && player2Connection != null) {
             // Once there are 2 clients, stop accepting new clients
             server.stopListening();
 
@@ -48,17 +55,10 @@ public class GameLogicControlServer {
             numQuestions = questions.size();
 
             GameData gameData = new GameData(questions);
+            gameData.setPlayers(Arrays.asList(player1, player2));
             dataToSendToClient = gameData;
 
-            try {
-                gameData.setPlayer1(true);
-                player1.sendToClient(gameData);
-
-                gameData.setPlayer1(false);
-                player2.sendToClient(gameData);
-            } catch (IOException e) {
-                log.append("Failed to send signal to start game to client\n");
-            }
+            server.sendToAllClients(gameData);
         }
     }
 
@@ -70,14 +70,18 @@ public class GameLogicControlServer {
             int questionNum = Integer.parseInt(data[3]);
 
             answersReceived++;
+
+            // Update player's score on GameData object that's used to sync data between players
+            if (isPlayer1) {
+                dataToSendToClient.getPlayers().get(0).setScore(score);
+            } else {
+                dataToSendToClient.getPlayers().get(1).setScore(score);
+            }
+            server.sendToAllClients(isPlayer1 + ";" + answersReceived + " Answers;" + score);
+
+            // Check to see if game should move on to the next question
             if (answersReceived == 2) {
-                server.sendToAllClients(isPlayer1 + ";" + answersReceived + " Answers;" + score);
                 answersReceived = 0;
-                if (isPlayer1) {
-                    dataToSendToClient.setPlayer1Score(score);
-                } else {
-                    dataToSendToClient.setPlayer2Score(score);
-                }
 
                 if (questionNum + 1 < numQuestions) {
                     dataToSendToClient.setCurrentQuestion(questionNum + 1);
@@ -95,22 +99,7 @@ public class GameLogicControlServer {
                     }
                 }
                 server.sendToAllClients(dataToSendToClient);
-            } else {
-                if (isPlayer1) {
-                    dataToSendToClient.setPlayer1Score(score);
-                } else {
-                    dataToSendToClient.setPlayer2Score(score);
-                }
-                server.sendToAllClients(isPlayer1 + ";" + answersReceived + " Answers;" + score);
             }
         }
-    }
-
-    private void resetState() {
-        player1 = null;
-        player2 = null;
-        numPlayers = 0;
-        numQuestions = 0;
-        answersReceived = 0;
     }
 }

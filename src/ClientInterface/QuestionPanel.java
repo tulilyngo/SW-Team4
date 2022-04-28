@@ -1,8 +1,8 @@
 package ClientInterface;
 
 import ServerComm.QuestionControl;
-import Database.GameData;
-import Database.QuestionData;
+import Data.GameData;
+import Data.QuestionData;
 
 import java.awt.*;
 import java.util.List;
@@ -23,12 +23,9 @@ public class QuestionPanel extends JPanel {
     private JButton answer4;
     private JPanel grid;
 
-    private boolean isPlayer1;
-
     public QuestionPanel(QuestionControl questionControl, GameData gameData) {
         questionControl.setGameData(gameData);
-        questionControl.setPlayer1(gameData.isPlayer1());
-        isPlayer1 = gameData.isPlayer1();
+
         QuestionData questionData = gameData.getQuestions().get(gameData.getCurrentQuestion());
 
         // ---------- Question Label Panel ----------
@@ -49,13 +46,8 @@ public class QuestionPanel extends JPanel {
         noAnswers = new JLabel("0 Answers", JLabel.CENTER);
         centerPanel.add(noAnswers);
 
-        if (isPlayer1) {
-            yourScore = new JLabel("You: " + gameData.getPlayer1Score(), JLabel.CENTER);
-            opponentScore = new JLabel("Opponent: " + gameData.getPlayer2Score(), JLabel.CENTER);
-        } else {
-            yourScore = new JLabel("You: " + gameData.getPlayer2Score(), JLabel.CENTER);
-            opponentScore = new JLabel("Opponent: " + gameData.getPlayer1Score(), JLabel.CENTER);
-        }
+        yourScore = new JLabel("You: 0");
+        opponentScore = new JLabel("Opponent: 0");
         centerPanel.add(yourScore);
         centerPanel.add(opponentScore);
 
@@ -115,6 +107,7 @@ public class QuestionPanel extends JPanel {
 
     public void updateQuestion(QuestionControl questionControl, GameData gameData) {
         questionControl.setGameData(gameData);
+
         QuestionData questionData = gameData.getQuestions().get(gameData.getCurrentQuestion());
         List<String> options = questionData.getAnswers();
 
@@ -146,7 +139,7 @@ public class QuestionPanel extends JPanel {
         answer4.setForeground(Color.WHITE);
     }
 
-    public void updateGameStats(String stats) {
+    public void updateGameStats(String stats, boolean isPlayer1) {
         String[] statVals = stats.split(";");
         boolean statForPlayer1 = Boolean.parseBoolean(statVals[0]);
 

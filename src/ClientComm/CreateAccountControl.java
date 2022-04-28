@@ -1,6 +1,6 @@
 package ClientComm;
 
-import Database.CreateAccountData;
+import Data.CreateAccountData;
 import ClientInterface.CreateAccountPanel;
 import ServerComm.GameClient;
 

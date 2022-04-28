@@ -6,10 +6,10 @@ import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import Database.CreateAccountData;
-import Database.Database;
-import Database.LoginData;
-import Database.Player;
+import Data.CreateAccountData;
+import Data.Database;
+import Data.LoginData;
+import Data.Player;
 import ocsf.server.AbstractServer;
 import ocsf.server.ConnectionToClient;
 
@@ -41,17 +41,10 @@ public class GameServer extends AbstractServer {
         log.append(log.getText());
     }
 
-    public JTextArea getLog() {
-        return log;
-    }
 
     public void setStatus(JLabel status)
     {
         this.status = status;
-    }
-
-    public JLabel getStatus() {
-        return status;
     }
 
     @Override
@@ -71,7 +64,7 @@ public class GameServer extends AbstractServer {
             // If user found, send current # players to client
             if (database.getFoundUser()) {
                 log.append("Log in for client " + loginData.getUsername() + " successful\n");
-                gameLogicControlServer.handleClientConnection(arg1);
+                gameLogicControlServer.handleClientConnection(arg1, player);
                 numPlayers++;
                 try {
                     arg1.sendToClient(numPlayers);
@@ -97,7 +90,6 @@ public class GameServer extends AbstractServer {
             Player player = new Player(createData.getUsername(), createData.getPassword());
 
             log.append("Create Account for client " + createData.getUsername() + " successful\n");
-            player.setID();
             database.addUser(player);
 
             // If username found, send error msg to client

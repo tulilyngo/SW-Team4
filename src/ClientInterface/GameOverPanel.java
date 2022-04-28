@@ -1,10 +1,12 @@
 package ClientInterface;
 
 import ClientComm.GameOverControl;
-import Database.GameData;
+import Data.GameData;
+import Data.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class GameOverPanel extends JPanel {
     private JLabel statusLabel;
@@ -19,13 +21,15 @@ public class GameOverPanel extends JPanel {
         statusLabel = new JLabel("Game Over!", JLabel.CENTER);
         statusLabel.setFont(new Font("Serif", Font.BOLD, 16));
 
-        if (gameData.getPlayer1Score() > gameData.getPlayer2Score()) {
+        List<Player> players = gameData.getPlayers();
+
+        if (players.get(0).getScore() > players.get(1).getScore()) {
             if (isPlayer1) {
                 resultLabel = new JLabel("You won!", JLabel.CENTER);
             } else {
                 resultLabel = new JLabel("You lost...", JLabel.CENTER);
             }
-        } else if (gameData.getPlayer1Score() < gameData.getPlayer2Score()) {
+        } else if (players.get(0).getScore() < players.get(1).getScore()) {
             if (isPlayer1) {
                 resultLabel = new JLabel("You lost...", JLabel.CENTER);
             } else {
